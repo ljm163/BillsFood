@@ -1,0 +1,27 @@
+{
+	"header": {
+		"errCode": 0,
+		"req": 1001
+	},
+	"body": {
+		"contents": {
+			"nowTime": "2021/09/28 12:04:28"
+		},
+		"point": [
+			{
+				"id": "9",
+				"contents": {
+					"id": "9",
+					"name": "Power Factor",
+					"unit": "%",
+					"pointType": 3,
+					"groupName": "Store Room"
+				},
+				"measureData": {
+					"diffType": 0,
+					"dataValue": "99.4"
+				}
+			}
+		]
+	}
+}
