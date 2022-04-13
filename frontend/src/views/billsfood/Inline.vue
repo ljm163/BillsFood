@@ -1,22 +1,19 @@
 <template>
-  <div>
-    <InspecDash></InspecDash>
-    <MiddleArea></MiddleArea>
-    <BottomArea></BottomArea>
+  <div class="page-header-index-wide">
+    <a-row>
+      <ChartsLayout></ChartsLayout>
+    </a-row>
   </div>
 </template>
 
 <script>
-import InspecDash from '../billsfood/inline/InspecDash'
-import MiddleArea from '../billsfood/inline/MiddleArea'
-import BottomArea from '../billsfood/inline/BottomArea'
+
+import ChartsLayout from '../billsfood/inline/ChartsLayout'
 
 export default {
   name: 'Inline',
   components: {
-    InspecDash,
-    MiddleArea,
-    BottomArea,
+    ChartsLayout
 
   },
   data() {

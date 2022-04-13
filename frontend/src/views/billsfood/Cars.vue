@@ -16,7 +16,7 @@ export default {
   name: 'cars',
   data() {
     return {
-      src: 'https://cn.bing.com'
+      src: 'https://gpstechnologies.com/wp-content/uploads/screenshot-www.airiqfleet.com-2019.12.png'
     }
   }
 }

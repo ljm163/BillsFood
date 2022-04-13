@@ -51,4 +51,13 @@ public class EnergyController {
         JSONObject json = FileToJson.fileToJson(URI);
         return json;
     }
+
+    @AutoLog(value = "inspection-分页列表查询")
+    @ApiOperation(value = "inspection-分页列表查询", notes = "inspection-分页列表查询")
+    @GetMapping(value = "inspection")
+    public JSONObject queryInspection() {
+        String URI = "billsfood/json/inspection.json";
+        JSONObject json = FileToJson.fileToJson(URI);
+        return json;
+    }
 }

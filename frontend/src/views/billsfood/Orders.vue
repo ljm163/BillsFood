@@ -4,9 +4,8 @@
     :data-source="data"
     :loading="loading">
     <span slot="JobComplete" slot-scope="status">
-    <a-tag :color="status === false ? 'volcano' : 'green'"
-    >
-      {{ status === true ? 'Completed' : 'Pending' }}
+    <a-tag :color="status === false ? 'volcano' : 'green'">
+      {{ status === true ? 'Completed' : '&nbsp;&nbsp;Pending&nbsp;&nbsp;' }}
     </a-tag>
     </span>
     <a slot="JobNum" slot-scope="job">{{ job }}</a>
@@ -34,6 +33,7 @@ export default {
           key: 'JobComplete',
           title: '生產狀態',
           dataIndex: 'JobComplete',
+          sorter: (a, b) => a.JobComplete - b.JobComplete,
           scopedSlots: { customRender: 'JobComplete' },
         },
         {
@@ -53,6 +53,7 @@ export default {
           key: 'ProdQty',
           title: '生產數量',
           dataIndex: 'ProdQty',
+          sorter: (a, b) => a.ProdQty - b.ProdQty,
           width: '14%',
         }, {
           key: 'StartDate',
@@ -60,14 +61,26 @@ export default {
           dataIndex: 'StartDate',
           scopedSlots: { customRender: 'StartDate' },
           width: '18%',
-          sorter: (a, b) => ('' + a.StartDate).localeCompare('' + b.StartDate),
+          sorter: function (a, b) {
+            let aDate = a.StartDate
+            let bDate = b.StartDate
+            aDate === null ? aDate = 0 : aDate = parseInt(aDate.replace(/-|T|:|\+/g, ''))
+            bDate === null ? bDate = 0 : bDate = parseInt(bDate.replace(/-|T|:|\+/g, ''))
+            return aDate - bDate
+          },
           defaultSortOrder: 'descend'
         }, {
           title: '完成日期',
           dataIndex: 'JobCompletionDate',
           scopedSlots: { customRender: 'JobCompletionDate' },
           width: '18%',
-          sorter: true,
+          sorter: function (a, b) {
+            let aDate = a.StartDate
+            let bDate = b.StartDate
+            aDate === null ? aDate = 0 : aDate = parseInt(aDate.replace(/-|T|:|\+/g, ''))
+            bDate === null ? bDate = 0 : bDate = parseInt(bDate.replace(/-|T|:|\+/g, ''))
+            return aDate - bDate
+          },
         }],
       loading: false,
 
